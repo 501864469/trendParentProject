@@ -1,0 +1,35 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: trend-trading-backtest-view
+  zipkin:
+    base-url: http://localhost:9411
+  thymeleaf:
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 120000000
+ribbon:
+  ReadTimeout: 12000000
+  ConnectTimeout: 12000000
+
+
+  max:
+    host:
+      connections: 500
+  host:
+    socket-timeout-millis: 12000000
+    connect-timeout-millis: 12000000

@@ -1,0 +1,15 @@
+package org.springcloud.client;
+import java.util.List;
+import org.springframework.stereotype.Component;
+import org.springcloud.pojo.IndexData;
+import cn.hutool.core.collection.CollectionUtil;
+@Component
+public class IndexDataClientFeignHystrix implements IndexDataClient {
+    @Override
+    public List<IndexData> getIndexData(String coed){
+        IndexData indexData=new IndexData();
+        indexData.setClosePoint(0);
+        indexData.setDate("0000-00-00");
+        return CollectionUtil.toList(indexData);
+    }
+}
